@@ -3,7 +3,7 @@
 Setup:
 1. Install dependencies (recommended: `uv sync` or `pip install -e .`).
 2. Export `GITHUB_TOKEN` for the GitHub Models endpoint and `ONE_API_KEY` for The One API.
-3. Run `python agent_framework_template.py` to watch the poet/critic ping-pong with the MCP server.
+3. Run `python agent_framework.py` to watch the poet/critic ping-pong with the MCP server.
 """
 
 import asyncio

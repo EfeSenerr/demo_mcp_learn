@@ -31,7 +31,7 @@ A demonstration project showcasing **Model Context Protocol (MCP)** integration 
 
 3. Run the demo:
    ```bash
-   python agent_framework_template.py
+   python main.py
    ```
 
 ## How It Works
@@ -45,5 +45,5 @@ A demonstration project showcasing **Model Context Protocol (MCP)** integration 
 ## Project Structure
 
 - `lotr_mcp_server.py` - MCP server implementation
-- `agent_framework_template.py` - Multi-agent orchestration
+- `main.py` - Multi-agent orchestration
 - `pyproject.toml` - Project dependencies and metadata
