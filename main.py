@@ -136,15 +136,15 @@ def create_mcp_tools() -> list[ToolProtocol]:
 
 def _chunk_contains_tool_calls(chunk: object) -> bool:
     return (
-        chunk.raw_representation
-        and chunk.raw_representation.raw_representation
-        and hasattr(chunk.raw_representation.raw_representation, "choices")
-        and chunk.raw_representation.raw_representation.choices is not None
-        and len(chunk.raw_representation.raw_representation.choices) > 0
-        and hasattr(chunk.raw_representation.raw_representation.choices[0], "delta")
-        and hasattr(chunk.raw_representation.raw_representation.choices[0].delta, "tool_calls")
-        and chunk.raw_representation.raw_representation.choices[0].delta.tool_calls is not None
-        and len(chunk.raw_representation.raw_representation.choices[0].delta.tool_calls) > 0
+        chunk.raw_representation # type: ignore
+        and chunk.raw_representation.raw_representation # type: ignore
+        and hasattr(chunk.raw_representation.raw_representation, "choices") # type: ignore
+        and chunk.raw_representation.raw_representation.choices is not None # type: ignore
+        and len(chunk.raw_representation.raw_representation.choices) > 0 # type: ignore
+        and hasattr(chunk.raw_representation.raw_representation.choices[0], "delta") # type: ignore
+        and hasattr(chunk.raw_representation.raw_representation.choices[0].delta, "tool_calls") # type: ignore
+        and chunk.raw_representation.raw_representation.choices[0].delta.tool_calls is not None # type: ignore
+        and len(chunk.raw_representation.raw_representation.choices[0].delta.tool_calls) > 0 # type: ignore
     )
 
 
@@ -164,7 +164,7 @@ async def stream_agent_response(
         elif log_tool_calls and _chunk_contains_tool_calls(chunk):
             tool_calls = [
                 call.function.name
-                for call in chunk.raw_representation.raw_representation.choices[0].delta.tool_calls
+                for call in chunk.raw_representation.raw_representation.choices[0].delta.tool_calls # type: ignore
                 if call.function.name is not None
             ]
             if tool_calls:
